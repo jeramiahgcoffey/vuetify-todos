@@ -52,12 +52,18 @@
 
     <v-main>
       <router-view></router-view>
+      <app-snackbar></app-snackbar>
     </v-main>
   </v-app>
 </template>
 
 <script>
+import AppSnackbar from './components/Shared/AppSnackbar.vue';
+
 export default {
+  components: {
+    'app-snackbar': AppSnackbar
+  },
   data: () => ({
     drawer: null,
     items: [
