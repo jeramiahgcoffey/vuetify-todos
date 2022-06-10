@@ -23,7 +23,15 @@
       </v-list>
     </v-navigation-drawer>
 
-    <v-app-bar app prominent absolute color="primary" dark src="mnts.jpg">
+    <v-app-bar
+      app
+      absolute
+      prominent
+      color="primary"
+      dark
+      src="mnts.jpg"
+      height="170"
+    >
       <template v-slot:img="{ props }">
         <v-img
           v-bind="props"
@@ -38,7 +46,10 @@
           <search></search>
         </v-row>
         <v-row>
-          <v-toolbar-title class="ml-4">Vuetify Todos</v-toolbar-title>
+          <v-toolbar-title class="text-h4 ml-4">Vuetify Todos</v-toolbar-title>
+        </v-row>
+        <v-row>
+          <live-date-time></live-date-time>
         </v-row>
       </v-container>
     </v-app-bar>
@@ -53,11 +64,13 @@
 <script>
 import AppSnackbar from './components/Shared/AppSnackbar.vue';
 import SearchCmp from './components/Tools/SearchCmp.vue';
+import LiveDateTime from './components/Tools/LiveDateTime.vue';
 
 export default {
   components: {
     'app-snackbar': AppSnackbar,
-    search: SearchCmp
+    search: SearchCmp,
+    'live-date-time': LiveDateTime
   },
   data: () => ({
     drawer: null,
