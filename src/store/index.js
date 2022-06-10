@@ -70,6 +70,10 @@ export default new Vuex.Store({
       commit('addTask', newTaskTitle)
       commit('showSnackbar', 'Task added!')
     },
+    updateTaskTitle({ commit }, payload) {
+      commit('updateTaskTitle', payload)
+      commit('showSnackbar', 'Task Updated!')
+    },
     deleteTask({ commit }, id) {
       commit('deleteTask', id)
       commit('showSnackbar', 'Task deleted!')
