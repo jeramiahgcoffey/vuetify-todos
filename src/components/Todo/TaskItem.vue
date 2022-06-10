@@ -17,8 +17,15 @@
           </v-list-item-title>
         </v-list-item-content>
 
+        <v-list-item-action v-if="task.dueDate">
+          <v-list-item-action-text>
+            <v-icon small>mdi-calendar</v-icon>
+            {{ task.dueDate | niceDate }}
+          </v-list-item-action-text>
+        </v-list-item-action>
+
         <v-list-item-action>
-          <task-menu :task="task"></task-menu>
+          <task-menu :task="task" />
         </v-list-item-action>
       </template>
     </v-list-item>
@@ -27,13 +34,17 @@
 </template>
 
 <script>
-import TaskMenu from '../Todo/TaskMenu.vue';
+import moment from 'moment';
 
 export default {
-  components: {
-    'task-menu': TaskMenu
+  props: ['task'],
+  filters: {
+    niceDate(value) {
+      return moment.utc(new Date(value)).format('MMM D');
+    }
   },
-
-  props: ['task']
+  components: {
+    'task-menu': require('@/components/Todo/TaskMenu.vue').default
+  }
 };
 </script>
