@@ -31,23 +31,16 @@
         ></v-img>
       </template>
 
-      <v-app-bar-nav-icon @click="drawer = !drawer"></v-app-bar-nav-icon>
-
-      <!-- <v-app-bar-title>Vuetify Todo</v-app-bar-title> -->
-
-      <v-spacer></v-spacer>
-
-      <v-btn icon>
-        <v-icon>mdi-magnify</v-icon>
-      </v-btn>
-
-      <v-btn icon>
-        <v-icon>mdi-heart</v-icon>
-      </v-btn>
-
-      <v-btn icon>
-        <v-icon>mdi-dots-vertical</v-icon>
-      </v-btn>
+      <v-container class="px-0">
+        <v-row>
+          <v-app-bar-nav-icon @click="drawer = !drawer"></v-app-bar-nav-icon>
+          <v-spacer></v-spacer>
+          <search></search>
+        </v-row>
+        <v-row>
+          <v-toolbar-title class="ml-4">Vuetify Todos</v-toolbar-title>
+        </v-row>
+      </v-container>
     </v-app-bar>
 
     <v-main>
@@ -59,10 +52,12 @@
 
 <script>
 import AppSnackbar from './components/Shared/AppSnackbar.vue';
+import SearchCmp from './components/Tools/SearchCmp.vue';
 
 export default {
   components: {
-    'app-snackbar': AppSnackbar
+    'app-snackbar': AppSnackbar,
+    search: SearchCmp
   },
   data: () => ({
     drawer: null,
