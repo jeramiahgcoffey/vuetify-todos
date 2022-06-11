@@ -1,14 +1,20 @@
 <template>
   <v-app id="inspire">
-    <v-navigation-drawer v-model="drawer" app>
-      <v-list-item>
-        <v-list-item-content>
-          <v-list-item-title class="text-h6"> Veutify Todos </v-list-item-title>
-          <v-list-item-subtitle> Jeramiah Coffey </v-list-item-subtitle>
-        </v-list-item-content>
-      </v-list-item>
-
-      <v-divider></v-divider>
+    <v-navigation-drawer v-model="drawer" :mobile-breakpoint="768" app>
+      <v-img
+        class="pa-4 pt-7"
+        height="170"
+        src="mnts.jpg"
+        gradient="to top right, rgba(19,84,122,.5), rgba(128,208,199,.8)"
+      >
+        <v-avatar size="70" class="mb-2">
+          <img src="jer.jpg" alt="Jer" />
+        </v-avatar>
+        <div class="white--text text-subtitle-1 font-weight-bold">
+          Jeramiah Coffey
+        </div>
+        <div class="white--text text-subtitle-2">jerrygcoffey</div>
+      </v-img>
 
       <v-list dense nav>
         <v-list-item v-for="item in items" :key="item.title" :to="item.to" link>
@@ -39,7 +45,7 @@
         ></v-img>
       </template>
 
-      <v-container class="px-0">
+      <v-container class="header-container px-0">
         <v-row>
           <v-app-bar-nav-icon @click="drawer = !drawer"></v-app-bar-nav-icon>
           <v-spacer></v-spacer>
@@ -81,3 +87,7 @@ export default {
   })
 };
 </script>
+<style lang="sass" scoped>
+.header-container
+  max-width: none !important
+</style>
