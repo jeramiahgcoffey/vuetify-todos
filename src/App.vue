@@ -86,7 +86,10 @@ export default {
       { title: 'Todos', icon: 'mdi-format-list-checks', to: '/' },
       { title: 'About', icon: 'mdi-help-box', to: '/about' }
     ]
-  })
+  }),
+  mounted() {
+    this.$store.dispatch('getTasks');
+  }
 };
 </script>
 <style lang="sass" scoped>
