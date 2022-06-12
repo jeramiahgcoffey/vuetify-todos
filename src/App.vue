@@ -31,17 +31,17 @@
 
     <v-app-bar
       app
-      absolute
+      fixed
       prominent
       color="primary"
       dark
       src="mnts.jpg"
-      height="170"
+      :height="$route.path === '/' ? '238' : '170'"
     >
       <template v-slot:img="{ props }">
         <v-img
           v-bind="props"
-          gradient="to top right, rgba(19,84,122,.5), rgba(128,208,199,.8)"
+          gradient="to top right, rgba(19,84,122,.9), rgba(128,208,199,.9)"
         ></v-img>
       </template>
 
@@ -59,6 +59,9 @@
         <v-row>
           <live-date-time></live-date-time>
         </v-row>
+        <v-row v-if="$route.path === '/'">
+          <field-add-task></field-add-task>
+        </v-row>
       </v-container>
     </v-app-bar>
 
@@ -73,12 +76,14 @@
 import AppSnackbar from './components/Shared/AppSnackbar.vue';
 import SearchCmp from './components/Tools/SearchCmp.vue';
 import LiveDateTime from './components/Tools/LiveDateTime.vue';
+import FieldAddTask from './components/Todo/FieldAddTask.vue';
 
 export default {
   components: {
     'app-snackbar': AppSnackbar,
     search: SearchCmp,
-    'live-date-time': LiveDateTime
+    'live-date-time': LiveDateTime,
+    'field-add-task': FieldAddTask
   },
   data: () => ({
     drawer: null,

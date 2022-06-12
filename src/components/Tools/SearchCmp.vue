@@ -4,6 +4,7 @@
     @input="$store.commit('setSearch', $event)"
     @focus="searchClosed = false"
     @blur="searchClosed = true"
+    :disabled="$store.state.sorting"
     placeholder="Search"
     filled
     dense

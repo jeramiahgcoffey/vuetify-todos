@@ -3,6 +3,7 @@ import Vuex from 'vuex'
 import Localbase from 'localbase'
 
 let db = new Localbase('db');
+db.config.debug = false;
 
 Vue.use(Vuex)
 
